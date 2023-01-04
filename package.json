@@ -8,7 +8,7 @@
     "url": ""
   },
   "scripts": {
-    "start:backend": "yarn workspace filler-backend start"
+    "start:backend": "npm run start --workspace=filler-backend"
   },
   "workspaces": {
     "packages": [
