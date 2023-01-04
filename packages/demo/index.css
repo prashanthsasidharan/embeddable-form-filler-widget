@@ -1,0 +1,47 @@
+/* form {
+  background-image: url('./image.jpeg');
+  background-repeat: no-repeat;
+  background-size:cover
+} */
+
+html body {
+  background-color: rgb(225, 225, 225);
+}
+
+.image-embedded-input {
+  position: relative;
+}
+
+.image-embedded-input > input {
+  width: 100%;
+}
+
+.image-embedded-input > .images {
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  padding-right: 4px;
+}
+
+.card-info > .card-details > input {
+  width: 50%;
+  padding: 4px 10px;
+}
+
+form label {
+  display: block;
+  color: hsla(0,0%,10%,.7);
+  font-size: 13px;
+}
+
+form input, form select {
+  border: 1px solid rgba(26,26,26,0.2);
+  border-radius: 6px;
+  color: hsla(0,0%,10%,0.9);
+  padding: 8px 12px;
+  width: 100%;
+}
+
+form input:focus, form select:focus {
+  border-color: green
+}
