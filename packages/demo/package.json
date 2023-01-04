@@ -12,7 +12,6 @@
   "author": "https://prashanthsasidharan.github.io/prashtalks/",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.3",
     "filler": "1.0.0"
   }
 }
