@@ -1,10 +1,10 @@
 {
   "name": "filler-backend",
   "version": "1.0.0",
-  "description": "Backend servicef for filler",
+  "description": "Backend service for filler",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,9 @@
     "cors": "^2.8.5",
     "http": "^0.0.1-security",
     "jade": "^1.11.0",
+    "mongoose": "^6.8.2",
     "multer": "^1.4.5-lts.1",
-    "mongoose": "^6.8.2"
+    "nodemon": "^2.0.20"
   },
   "author": "https://prashanthsasidharan.github.io/prashtalks/",
   "license": "ISC",

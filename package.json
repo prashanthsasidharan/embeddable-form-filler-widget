@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Used by testers for testing the project flow by filling the form fields with dummy credentials",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "scripts": {
+    "start:backend": "yarn workspace filler-backend start"
   },
   "workspaces": {
     "packages": [
@@ -17,6 +17,10 @@
   },
   "keyword": [
     "filler",
+    "frontend",
+    "backend",
+    "mongodb",
+    "react",
     "testing",
     "HTML",
     "CSS"
