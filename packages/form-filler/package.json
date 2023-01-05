@@ -16,7 +16,8 @@
     "build": "npm run build:react && npm run build:bundle",
     "build:react": "react-scripts build",
     "build:bundle": "webpack --config webpack.config.js",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "serve": "http-server ./dist/build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,7 @@
   "devDependencies": {
     "css-loader": "^6.7.3",
     "glob": "^8.0.3",
+    "http-server": "^14.1.1",
     "path": "^0.12.7",
     "style-loader": "^3.3.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
