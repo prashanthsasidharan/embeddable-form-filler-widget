@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import FormsMap from './fieldMap';
 
 let fillerWrapper = document.createElement('div');
 fillerWrapper.setAttribute('id', 'filler-wrapper');
 document.body.appendChild(fillerWrapper);
 
 const root = ReactDOM.createRoot(fillerWrapper);
+
 root.render(
   <React.StrictMode>
     <App />

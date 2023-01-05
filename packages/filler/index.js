@@ -1,30 +1,60 @@
 import { tiltShake } from './constants.js';
-
+require('bootstrap');
 class Filler {
   fillerElement = null;
   transtionTime = 500;
   posX = 0;
   posY = 0;
+
   constructor(data = []) {
     this.FormsMap = data;
     let filler = this.constructFillerElement();
     document.querySelector('body').appendChild(filler);
     this.fillerElement = filler;
-    this.addDragFunctionality(this.fillerElement);
-    this.attachButtonClickListener(this.fillerElement);
+    this.addDragFunctionality();
+    this.attachFillerClickListener();
+    this.attachModalWrapper();
     this.fillerPositionUpdate();
   }
 
-  attachButtonClickListener(filler) {
-    filler.addEventListener('mouseup', () => {
-      let newPosX = this.fillerElement.offsetLeft;
-      let newPosY = this.fillerElement.offsetTop;
-      let xDiff = Math.abs(newPosX - this.posX);
-      let yDiff = Math.abs(newPosY - this.posY);
-      if (xDiff<5 && yDiff<5){
-        this._fillDummyData();
-      }
+  attachFillerClickListener() {
+    this.fillerElement.addEventListener('mouseup', () => {
+      this.isNotDragging() && this.openFillerConfiguration();
     });
+  }
+
+  attachFillerConfigureListener() {
+    this.fillerElement.addEventListener('mouseup', () => {
+      this.isNotDragging() && this._fillDummyData();
+    });
+  }
+
+  attachModalWrapper() {
+    let wrapper = document.createElement('div');
+    wrapper.setAttribute('id', 'filler-modal-wrapper');
+    document.body.prepend(wrapper);
+  }
+
+  openFillerConfiguration() {
+    let wrapperElement = document.querySelector('#filler-modal-wrapper');
+    wrapperElement.innerHTML = 
+    `<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          ...
+        </div>
+      </div>
+    </div>`;
+  }
+
+  isNotDragging() {
+    let newPosX = this.fillerElement.offsetLeft;
+    let newPosY = this.fillerElement.offsetTop;
+    let xDiff = Math.abs(newPosX - this.posX);
+    let yDiff = Math.abs(newPosY - this.posY);
+    return xDiff<5 && yDiff<5;
   }
 
   fillerPositionUpdate() {
@@ -33,9 +63,6 @@ class Filler {
   }
 
   constructFillerElement() {
-    if (window.location.origin && window.location.origin.includes('.zoho.')) {
-      return;
-    }
 
     let existingContainer = document.getElementById('filler-container');
     if (existingContainer) {
@@ -89,9 +116,10 @@ class Filler {
     return filler;
   }
 
-  addDragFunctionality(elmnt) {
+  addDragFunctionality() {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    elmnt.onmousedown = dragMouseDown;
+    let fillerElement = this.fillerElement;
+    fillerElement.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
       e = e || window.event;
@@ -113,8 +141,8 @@ class Filler {
       pos3 = e.clientX;
       pos4 = e.clientY;
       // set the element's new position:
-      elmnt.style.top = (elmnt.offsetTop - pos2) + 'px';
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + 'px';
+      fillerElement.style.top = (fillerElement.offsetTop - pos2) + 'px';
+      fillerElement.style.left = (fillerElement.offsetLeft - pos1) + 'px';
     }
 
     const closeDragElement = () => {
@@ -197,18 +225,14 @@ class Filler {
             element.checked = true;
             // To sync data with the framework's data layer
             element.dispatchEvent(new Event('change', { bubbles: true }));
-          } else if (field.type === 'secret-pin') {
-            field.value.split('').forEach((value, index) => {
-              let element = document.querySelector(`${field.selector}:nth-child(${index + 1})`);
-              this.inputFill(element, value);
-            });
-          } else {
+          }  else {
             this.inputFill(element, field.value);
           }
           element.blur();
         }
       }, 0);
     });
+
   }
 }
 
