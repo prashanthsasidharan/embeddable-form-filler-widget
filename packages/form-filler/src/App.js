@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import ConfigureFillerData from "./components/configureFillerData";
 
 const tiltShake = [
   { transform: 'skewY(-15deg)', offset: 0 },
@@ -198,12 +199,15 @@ function App({data: formsMap = []}) {
   }
 
   return (
-    <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
-      <button>
-        sdfsdf
-        {/* {fillerLogo()} */}
-      </button>
-    </span>
+    <>
+      <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
+        <ConfigureFillerData />
+        <button>
+          sdfsdf
+          {/* {fillerLogo()} */}
+        </button>
+      </span>
+    </>
   )
   
 };

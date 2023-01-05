@@ -5,10 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const fragment = document.createDocumentFragment();
 
 let fillerWrapper = document.createElement('div');
 fillerWrapper.setAttribute('id', 'filler-wrapper');
-document.body.appendChild(fillerWrapper);
+fragment.appendChild(fillerWrapper);
+
+let ModalWrapper = document.createElement('div');
+ModalWrapper.setAttribute('id', 'filler-modal-wrapper');
+fragment.appendChild(ModalWrapper);
+
+document.body.appendChild(fragment);
 
 const root = ReactDOM.createRoot(fillerWrapper);
 
