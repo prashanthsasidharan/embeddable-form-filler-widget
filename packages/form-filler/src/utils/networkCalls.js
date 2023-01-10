@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/filler/form';
+const BASE_URL = 'https://embeddable-form-filler.up.railway.app/filler/form';
 
 async function getForms() {
   let res = await fetch(`${BASE_URL}/`)
