@@ -5,6 +5,7 @@ import Preview from './preview';
 import FormTypeConfig from './editFields/formTypeConfig';
 import FieldTypeConfig from './editFields/fieldTypeConfig';
 import { createForm, createField } from '../utils/networkCalls';
+import { useNotifyContext } from '../contexts/notify';
 
 const fieldHashTemplate = {
   selector: '',
@@ -20,6 +21,9 @@ export default function CreateFormFields({ formsData, closeModal }) {
     return constructFormTemplate()
   });
 
+  let notify = useNotifyContext();
+
+
   function constructFormTemplate() {
     return constructNewField({
       name: '',
@@ -33,9 +37,14 @@ export default function CreateFormFields({ formsData, closeModal }) {
     return {...form};
   }
 
-  function createEntity() {
-    creationType === 'form' ? createForm(newFormData) : createField(newFormData);
-    closeModal();
+  async function createEntity() {
+    try {
+      let msg = creationType === 'form' ? await createForm(newFormData) : await createField(newFormData);
+      notify({ type: 'success', msg});
+      closeModal()
+    } catch(err) {
+      notify({ type: 'danger', msg: err.msg })
+    }
   }
 
   useEffect(() => {

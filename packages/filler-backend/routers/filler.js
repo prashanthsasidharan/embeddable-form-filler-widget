@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 // Create form with fields
 router.post('/', CreateForm, async(req, res) => {
- return res.status(200).send({data: { message: 'Successfully added new form'}});
+ return res.status(200).send({message: 'Successfully added new form'});
 });
 
 // Create Field for a form
@@ -40,7 +40,7 @@ router.put('/', async(req, res) => {
     forms.forEach((form) => {
       return CreateForm({body: form}, res);
     });
-    return res.status(200).send({data: {message: 'Successfully updated form'}});
+    return res.status(200).send({message: 'Successfully updated form'});
   } catch(err) {
     return res.status(404).send({message: err.message});
   }
@@ -48,10 +48,10 @@ router.put('/', async(req, res) => {
 
 
 // // Delete Form
-// router.delete('/:formId',GetForm,  async(req, res) => {
-//   await Form.deleteOne({id: res.form.id})
-//   res.status(200).send({data: await Form.find()});
-// });
+router.delete('/:formId',GetForm,  async(req, res) => {
+  await Form.deleteOne({id: res.form.id})
+  res.status(200).send({data: await Form.find()});
+});
 
 // //Delete all forms;
 
@@ -61,9 +61,10 @@ router.put('/', async(req, res) => {
 // });
 
 // // Delete Field
-// router.delete('/field/:fieldId', async(req, res) => {
-
-// });
+router.delete('/field/:fieldId', async(req, res) => {
+  await Form.deleteMany({});
+  await Field.deleteMany({});
+});
 
 //middleWares
 

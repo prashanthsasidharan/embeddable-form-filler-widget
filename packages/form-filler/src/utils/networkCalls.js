@@ -1,4 +1,5 @@
-const BASE_URL = 'https://embeddable-form-filler.up.railway.app/filler/form';
+const BASE_URL = 'http://localhost:3000/filler/form';
+
 
 async function getForms() {
   let res = await fetch(`${BASE_URL}/`)
@@ -7,15 +8,19 @@ async function getForms() {
 }
 
 async function editForm(formEditData) {
-  let res = await fetch(`${BASE_URL}/`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formEditData)
-  });
-
-  let { data } = await res.json();
+  try {
+    let res = await fetch(`${BASE_URL}/`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formEditData)
+    });
+    let { message } = await res.json();
+    return message;
+  } catch(err) {
+    throw err.message
+  }
 }
 
 async function createForm(newForm) {
@@ -27,7 +32,8 @@ async function createForm(newForm) {
     body: JSON.stringify(newForm)
   });
 
-  let { data } = await res.json();
+  let { message } = await res.json();
+  return message;
 }
 
 async function createField(newForm) {
@@ -40,7 +46,8 @@ async function createField(newForm) {
     body: JSON.stringify(fieldData)
   });
 
-  let { data } = await res.json();
+  let { message } = await res.json();
+  return message;
 }
 
 

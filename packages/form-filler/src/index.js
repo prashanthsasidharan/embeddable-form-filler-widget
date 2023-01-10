@@ -15,7 +15,7 @@ let ModalWrapper = document.createElement('div');
 ModalWrapper.setAttribute('id', 'filler-modal-wrapper');
 fragment.appendChild(ModalWrapper);
 
-document.body.appendChild(fragment);
+document.body.prepend(fragment);
 
 const root = ReactDOM.createRoot(fillerWrapper);
 

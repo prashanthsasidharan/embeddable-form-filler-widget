@@ -1,4 +1,5 @@
-import { Children, createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useMemo, useCallback } from "react"
+import Alert from "react-bootstrap/Alert";
 
 let NotificationContext = createContext();
 
@@ -10,30 +11,21 @@ export default function Notify({ children }) {
   let [canNotify, setCanNotify] = useState(false);
   let [notifyConfig, setNotifyConfig] = useState({});
 
+  const notify = useCallback(config => {
+    setCanNotify(true);
+    setNotifyConfig(config)
+  }, []);
 
   return (
-  <NotificationContext.Provider value={}>
+  <NotificationContext.Provider value={notify}>
     {canNotify && (
-      <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-        <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-        <p>
-          Change this and that and try again. Duis mollis, est non commodo
-          luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-          Cras mattis consectetur purus sit amet fermentum.
-        </p>
-      </Alert>
+      <Alert variant={notifyConfig.type} onClose={() => setCanNotify(false)} className="mt-4 text-center w-25 position-absolute start-50 top-0 translate-middle" dismissible>
+      <p className="mb-0">
+        {notifyConfig.msg}
+      </p>
+    </Alert>
     )}
 
     {children}
   </NotificationContext.Provider>)
 }
-
-
-notify({
-  type: 'success',
-  msg: 'semma'
-})
-
-notify({
-  
-})
