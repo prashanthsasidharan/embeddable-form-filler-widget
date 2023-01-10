@@ -15,4 +15,4 @@ app.use(express.json());
 app.use('/filler/form', fillerRouter);
 
 
-app.listen('1000', () => console.log('server started'))
+app.listen(process.env.PORT, () => console.log('server started'))
