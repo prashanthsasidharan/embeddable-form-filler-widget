@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 function FieldTypeConfig({ newFieldData, formsData, updateFieldTypeData }) {
   let formNames = formsData.map((form) => form.name) || [];
-  let [selectedForm, setSelectedForm] = useState(formNames?.[0]);
+  let [selectedForm, setSelectedForm] = useState(0);
 
   useEffect(() => {
-    updateFieldTypeData({resetData: true})
+    updateFieldTypeData({resetData: true});
+    updateFieldTypeData({prop: 'formId', value: formsData?.[selectedForm]?._id})
   }, [selectedForm])
 
   return (

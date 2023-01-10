@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import ConfigureFillerData from "./components/configureFillerData";
 import FillerBody from './components/fillerBody'
+import { getForms } from "./utils/networkCalls";
+
 const fillerStyle = {
   position: 'fixed',
   top: '25%',
@@ -13,9 +15,7 @@ function App() {
   let fillerRef = useRef(null);
 
   async function getFormData() {
-    let res = await fetch('/filler');
-    let { data } = await res.json();
-    setFormsData(data);
+    setFormsData(await getForms());
   }
   useEffect(() => {
     getFormData();
@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
-        <ConfigureFillerData formsData={formsData} />
+        <ConfigureFillerData formsData={formsData} refetchFormData={getFormData} />
         <FillerBody fillerRef={fillerRef} />
       </span>
     </>

@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 // Create form with fields
 router.post('/', CreateForm, async(req, res) => {
- return res.status(200).send({data: await Form.find()});
+ return res.status(200).send({data: { message: 'Successfully added new form'}});
 });
 
 // Create Field for a form
@@ -24,17 +24,22 @@ router.post('/fields/:formId', GetForm, async(req, res) => {
     let field = await Field.create(req.body);
     form.fields.push(field);
     await form.save();
-    return res.status(200).send({data: await Form.find()});
+    return res.status(200).send({message: 'Successfully added new field'});
   } catch(err) {
     return res.status(500).send({message: err.message});
   }
 });
 
 // Edit 
-router.put('/:formId',CreateForm, async(req, res) => {
+router.put('/', async(req, res) => {
   try {
-    let form = await Form.findOne({id: req.params.formId});
-    await Form.deleteOne(form)
+    await Form.deleteMany({});
+    await Field.deleteMany({});
+
+    let forms = req.body || [];
+    forms.forEach((form) => {
+      return CreateForm({body: form}, res);
+    });
     return res.status(200).send({data: {message: 'Successfully updated form'}});
   } catch(err) {
     return res.status(404).send({message: err.message});
@@ -78,7 +83,7 @@ async function CreateForm(req, res, next) {
     formData.fields = dbFields;
     let dbForm = await Form.create(formData);
     await dbForm.save();
-    next();
+    next && next();
   } catch(err) {
     return res.status(500).send({message: err.message});
   }

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Preview from './preview';
 import FormTypeConfig from './editFields/formTypeConfig';
 import FieldTypeConfig from './editFields/fieldTypeConfig';
-
+import { createForm, createField } from '../utils/networkCalls';
 
 const fieldHashTemplate = {
   selector: '',
@@ -12,7 +12,7 @@ const fieldHashTemplate = {
   type: 'input'
 };
 
-export default function CreateFormFields({ formsData }) {
+export default function CreateFormFields({ formsData, closeModal }) {
 
   let [creationType, setCreationType] = useState('form');
 
@@ -33,8 +33,13 @@ export default function CreateFormFields({ formsData }) {
     return {...form};
   }
 
+  function createEntity() {
+    creationType === 'form' ? createForm(newFormData) : createField(newFormData);
+    closeModal();
+  }
+
   useEffect(() => {
-    let data = creationType === 'form' ? constructFormTemplate() : {...fieldHashTemplate}
+    let data = creationType === 'form' ? constructFormTemplate() : {...fieldHashTemplate, formId: formsData?.[0]._id}
     setNewFormData(data)
   }, [creationType])
 
@@ -46,17 +51,6 @@ export default function CreateFormFields({ formsData }) {
     let data = {...newFormData};
     data[prop] = value;
     setNewFormData(data)
-  }
-
-
-  function postNewForm() {
-    fetch('/filler', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newFormData)
-    })
   }
 
   return (
@@ -86,8 +80,8 @@ export default function CreateFormFields({ formsData }) {
     </div>
     <hr />
     <div className='d-flex gap-2'>
-      <Button variant="secondary">Close</Button>
-      <Button variant="primary" onClick={() => postNewForm()}>Save changes</Button>
+      <Button variant="secondary" onClick={closeModal}>Close</Button>
+      <Button variant="primary" onClick={() => createEntity()}>Create Form</Button>
     </div>
     </>
   )

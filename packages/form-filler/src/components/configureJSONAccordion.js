@@ -4,9 +4,9 @@ import Preview from './preview';
 import Button from 'react-bootstrap/Button';
 import { deepClone, areObjectsEqual } from '../utils/commonMethods';
 import ConfigureFormFields from './configureFormFields';
+import { editForm } from '../utils/networkCalls';
 
-export default function ConfigureJSONAccordion({formsData = []}) {
-
+export default function ConfigureJSONAccordion({formsData = [], closeModal}) {
 let [previewForm, setPreviewForm] = useState({});
 
 let [formEditData, setFormsEditData] = useState(() => {
@@ -19,22 +19,12 @@ useEffect(() => {
   setPreviewForm(formEditData[activeItemId.current]);
 }, [formEditData])
 
-async function postFormChanges() {
-  console.log(formsData, formEditData, areObjectsEqual(formsData, formEditData));
+function postEditChanges() {
   if (areObjectsEqual(formsData, formEditData)) {
     return;
   }
-
-  let res = await fetch('/filler', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formEditData)
-  });
-
-  let {data} = await res.json();
-
+  editForm(formEditData);
+  closeModal();
 }
 
 function updateFormData(prop, value, fieldId = null) {
@@ -48,6 +38,13 @@ function updateFormData(prop, value, fieldId = null) {
   setFormsEditData(data);
 }
 
+function accordionItemHandler(index, form) {
+  activeItemId.current = index;
+
+  setPreviewForm(form)
+
+};
+
   return (
     <>
     <div className='row p-3 modal-height overflow-hidden'>
@@ -56,7 +53,7 @@ function updateFormData(prop, value, fieldId = null) {
 
           {formEditData.map((form, index) => (
             <Accordion.Item key={index} eventKey={index}>
-              <Accordion.Header className="bg-secondary" onClick={() => {activeItemId.current = index; setPreviewForm(form)}}>
+              <Accordion.Header className="bg-secondary" onClick={() => accordionItemHandler(index, form)}>
                   {formsData[index].name}
               </Accordion.Header>
 
@@ -75,8 +72,8 @@ function updateFormData(prop, value, fieldId = null) {
     </div>
     <hr />
     <div className='d-flex gap-2'>
-      <Button variant="secondary">Close</Button>
-      <Button variant="primary" onClick={() => postFormChanges()}>Save changes</Button>
+      <Button variant="secondary" onClick={closeModal}>Close</Button>
+      <Button variant="primary" onClick={() => postEditChanges()}>Save changes</Button>
     </div>
     </>
   )

@@ -29,3 +29,7 @@ code {
 .modal-height {
   height: 60vh;
 }
+
+.accordion-body hr:last-child {
+  display: none;
+}

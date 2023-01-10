@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import ConfigureModal from './configureModal';
 import ReactDOM from 'react-dom';
 
-export default function ConfigureFillerData({formsData}) {
+export default function ConfigureFillerData({formsData, refetchFormData}) {
   let [showConfigureModal, setConfigureModalState] = useState(false);
 
   function closeModalHandling() {
+    refetchFormData();
     setConfigureModalState(false);
   }
 

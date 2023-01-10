@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
@@ -28,10 +27,10 @@ export default function ConfigureModal(props) {
           className="mb-3"
         >
           <Tab eventKey="create" title="Create Form/field">
-            <CreateFormFields formsData={formsData} />
+            <CreateFormFields formsData={formsData} closeModal={closeModalHandling} />
           </Tab>
           <Tab eventKey="edit" title="Edit form/field">
-            <ConfigureJSONAccordion formsData={formsData} />
+            <ConfigureJSONAccordion formsData={formsData} closeModal={closeModalHandling} />
           </Tab>
           <Tab eventKey="preview" title="Preview Forms" className='modal-height overflow-hidden'>
             <Preview data={formsData} />

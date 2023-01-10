@@ -14,7 +14,8 @@ export default function ConfigureFormFields({ form, updateFormData}) {
       </div>
       <hr />
       {form?.fields?.map((field, index) => (
-        <div key={index}>
+        <>
+          <div key={index}>
           <div className='row'>
             <label htmlFor={index} className="col-6">Selector</label>
             <input id={index} defaultValue={field.selector} className="col-6" onInput={(e) => updateFormData('selector', e.target.value, index)} />
@@ -29,8 +30,9 @@ export default function ConfigureFormFields({ form, updateFormData}) {
               {['input', 'select'].map((fieldType) => <option>{fieldType}</option>)}
             </select>
           </div>
-            <hr />
-        </div>
+          </div>
+          <hr />
+        </>
       ))}
     </fieldset>
   )
