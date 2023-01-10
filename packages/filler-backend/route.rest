@@ -1,0 +1,54 @@
+GET http://localhost:1000/filler/form
+
+###
+
+POST http://localhost:1000/filler/form
+Content-Type: application/json
+
+{
+  "name": "hsbcRegForm",
+  "selector": "[data-form=\"hsbc-reg\"]",
+  "fields": [
+    {
+      "selector": "[data-field=\"Identifier1\"] input",
+      "value": "PC000016677",
+      "type": "input"
+    }
+  ]
+}
+
+
+###
+DELETE http://localhost:1000/filler/form/123213
+
+###
+
+POST http://localhost:1000/filler/form/fields/63bcb7e3b3f3bb438e17e69f
+Content-Type: application/json
+
+{
+  "selector": "super selector",
+  "value": "PC000016677",
+  "type": "input"
+}
+
+###
+
+PUT http://localhost:1000/filler/form/63bcbbce5aba32a98a3a6569
+Content-Type: application/json
+
+{
+  "name": "dummy da",
+  "selector": "[data-form=\"hsbc-reg\"]",
+  "fields": [
+    {
+      "selector": "[data-field=\"Identifier1\"] input",
+      "value": "sldkjflsdf",
+      "type": "input"
+    }
+  ]
+}
+
+###
+
+DELETE http://localhost:1000/filler/form/63bcbcaddcfb3e07a7bd3dad
