@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ConfigureModal from './configureModal';
 import ReactDOM from 'react-dom';
 
-export default function ConfigureFillerData() {
+export default function ConfigureFillerData({formsData}) {
   let [showConfigureModal, setConfigureModalState] = useState(false);
 
   function closeModalHandling() {
@@ -16,6 +16,7 @@ export default function ConfigureFillerData() {
         <ConfigureModal
           closeModalHandling={closeModalHandling}
           showConfigureModal={showConfigureModal}
+          formsData={formsData}
         />, document.querySelector('#filler-modal-wrapper'))}
     </>
   )

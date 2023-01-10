@@ -26,6 +26,6 @@ code {
 }
 
 
-.modal-min-height {
-  min-height: 70vh;
+.modal-height {
+  height: 60vh;
 }
