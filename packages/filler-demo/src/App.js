@@ -33,7 +33,7 @@ function App() {
           <fieldset className="card-info">
             <label htmlFor="card-info">Card information</label>
             <div className="image-embedded-input">
-              <input id="card-info" type="text" className="p-2" />
+              <input id="card-info" type="text" className="p-2" data-field="cardInfo"/>
               <div className="images">
                 <img src="http://www.zermatt-fun.ch/images/mastercard.jpg" width={25} />
                 <img src="http://www.zermatt-fun.ch/images/mastercard.jpg" width={25} />
@@ -41,26 +41,27 @@ function App() {
             </div>
 
             <div className="card-details d-flex">
-              <input type="text" inputMode="numeric" placeholder="MM / YY" />
-              <input type="number" maxLength="4" placeholder="CVC " />
+              <input type="text" inputMode="numeric" placeholder="MM / YY" data-field="cardDate"/>
+              <input type="number" maxLength="4" placeholder="CVV " data-field="cardCvv" />
             </div>
           </fieldset>
 
           <fieldset>
             <label>Name on Card</label>
-            <input type="text" />
+            <input type="text" data-field="cardName"/>
           </fieldset>
 
           <fieldset>
             <label htmlFor="card-name">Country or region</label>
-            <select className="p-2">
+            <select className="p-2" data-field="country" select="India">
               <option value="Afghanistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
               <option value="American Samoa">American Samoa</option>
               <option value="Andorra">Andorra</option>
+              <option value="India">India</option>
             </select>
-            <input type="number" placeholder="ZIP" />
+            <input type="number" placeholder="ZIP" data-field="zip"/>
           </fieldset>
 
           <button className="btn btn-primary text-center p-2">Pay</button>

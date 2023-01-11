@@ -37,9 +37,16 @@ router.put('/', async(req, res) => {
     await Field.deleteMany({});
 
     let forms = req.body || [];
-    forms.forEach((form) => {
-      return CreateForm({body: form}, res);
-    });
+
+    for(const form of forms) {
+      await CreateForm({body: form}, res);
+    }
+
+    // foreach won't work for asycn functions
+    https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
+    // forms.forEach(async (form) => {
+    //   await CreateForm({body: form}, res);
+    // });
     return res.status(200).send({message: 'Successfully updated form'});
   } catch(err) {
     return res.status(404).send({message: err.message});

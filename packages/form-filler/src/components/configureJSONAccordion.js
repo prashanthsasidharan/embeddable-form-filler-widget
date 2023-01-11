@@ -7,7 +7,7 @@ import ConfigureFormFields from './configureFormFields';
 import { editForm } from '../utils/networkCalls';
 import { useNotifyContext } from '../contexts/notify';
 
-export default function ConfigureJSONAccordion({formsData = [], closeModal}) {
+export default function ConfigureJSONAccordion({formsData = [], closeModal, refetchFormData}) {
 let [previewForm, setPreviewForm] = useState({});
 
 let [formEditData, setFormsEditData] = useState(() => {
@@ -33,7 +33,8 @@ async function postEditChanges() {
   try {
     let msg = await editForm(formEditData);
     notify({ type: 'success', msg});
-    closeModal()
+    refetchFormData();
+    closeModal();
   } catch(err) {
     notify({ type: 'danger', msg: err.msg })
   }

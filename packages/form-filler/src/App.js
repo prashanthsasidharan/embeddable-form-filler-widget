@@ -12,13 +12,13 @@ const fillerStyle = {
 }
 
 function App() {
-  let [formsData, setFormsData] = useState([]);
+  let [formsData, setFormsData] = useState([{}]);
   let fillerRef = useRef(null);
   let [isFillerLoading, setFillerLoading] = useState(false);
 
   async function getFormData() {
     setFillerLoading(true);
-    let data =  await getForms()
+    let data =  await getForms();
     setFormsData(data);
     setFillerLoading(false);
   }

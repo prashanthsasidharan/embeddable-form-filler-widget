@@ -13,7 +13,7 @@ const fieldHashTemplate = {
   type: 'input'
 };
 
-export default function CreateFormFields({ formsData, closeModal }) {
+export default function CreateFormFields({ formsData, closeModal, refetchFormData }) {
 
   let [creationType, setCreationType] = useState('form');
 
@@ -41,6 +41,7 @@ export default function CreateFormFields({ formsData, closeModal }) {
     try {
       let msg = creationType === 'form' ? await createForm(newFormData) : await createField(newFormData);
       notify({ type: 'success', msg});
+      refetchFormData();
       closeModal()
     } catch(err) {
       notify({ type: 'danger', msg: err.msg })

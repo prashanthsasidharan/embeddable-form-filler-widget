@@ -63,3 +63,64 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/filler/form/field/63bcbcaddcfb3e07a7bd3dad
 
+
+
+Dummy data for filling form
+
+# {
+#     "_id": "63be1cd4de1d5e1dbcd5bf74",
+#     "name": "Form Data",
+#     "selector": "[data-form=\"payments\"]",
+#     "fields": [
+#         {
+#             "selector": "[data-field=\"email\"]",
+#             "value": "prashanth@gmail.com",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf5f",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"cardInfo\"]",
+#             "value": "12345678999",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf60",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"cardDate\"]",
+#             "value": "01/23",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf61",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"cardCvv\"]",
+#             "value": "123",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf62",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"cardName\"]",
+#             "value": "prash hdfc",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf63",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"country\"]",
+#             "value": "India",
+#             "type": "select",
+#             "_id": "63be1cd3de1d5e1dbcd5bf64",
+#             "__v": 0
+#         },
+#         {
+#             "selector": "[data-field=\"zip\"]",
+#             "value": "654321",
+#             "type": "input",
+#             "_id": "63be1cd3de1d5e1dbcd5bf65",
+#             "__v": 0
+#         }
+#     ],
+#     "__v": 0
+# }

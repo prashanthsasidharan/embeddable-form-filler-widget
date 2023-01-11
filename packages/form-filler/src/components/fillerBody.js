@@ -139,21 +139,21 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
         if (field.type === 'select') {
           element.value = field.value;
           // To sync data with the framework's data layer
-          var selectEvent = new Event('zSelect', { bubbles: true });
+          var selectEvent = new Event('select', { bubbles: true });
           element.dispatchEvent(selectEvent);
         } else if (field.type === 'file-upload') {
 
-          let container = new DataTransfer();
-          container.items.add(field.value);
+          // let container = new DataTransfer();
+          // container.items.add(field.value);
 
-          let inputElement = element.shadowRoot.querySelector('input');
-          inputElement.files = container.files;
-          inputElement.dispatchEvent(new Event('change', { bubbles: true }));
-          inputElement.dispatchEvent(new Event('input', { bubbles: true }));
+          // let inputElement = element.shadowRoot.querySelector('input');
+          // inputElement.files = container.files;
+          // inputElement.dispatchEvent(new Event('change', { bubbles: true }));
+          // inputElement.dispatchEvent(new Event('input', { bubbles: true }));
         } else if (field.type === 'date') {
           element.value = field.value;
 
-          element.dispatchEvent(new Event('zSelect', { bubbles: true }));
+          element.dispatchEvent(new Event('select', { bubbles: true }));
           element.dispatchEvent(new Event('input', { bubbles: true }));
         } else {
           if (field.type === 'checkbox') {
