@@ -13,9 +13,13 @@ const fillerStyle = {
 function App() {
   let [formsData, setFormsData] = useState([]);
   let fillerRef = useRef(null);
+  let [isFillerLoading, setFillerLoading] = useState(false);
 
   async function getFormData() {
-    setFormsData(await getForms());
+    setFillerLoading(true);
+    let data =  await getForms()
+    setFormsData(data);
+    setFillerLoading(false);
   }
   useEffect(() => {
     getFormData();
@@ -23,10 +27,12 @@ function App() {
   
   return (
     <Notify>
-      <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
-        <ConfigureFillerData formsData={formsData} refetchFormData={getFormData} />
-        <FillerBody fillerRef={fillerRef} />
-      </span>
+      {!isFillerLoading && (
+        <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
+          <ConfigureFillerData formsData={formsData} refetchFormData={getFormData} />
+          <FillerBody fillerRef={fillerRef} formsMap={formsData} />
+        </span>
+      )}
     </Notify>
   )
   

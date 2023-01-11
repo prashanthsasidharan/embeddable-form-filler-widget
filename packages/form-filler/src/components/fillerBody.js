@@ -117,7 +117,7 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
       return;
     }
 
-    this.addTimedStyle(buttonElement, 'border', '2px solid #1BAD71');
+    addTimedStyle(buttonElement, 'border', '2px solid #1BAD71');
 
     // filler
     formFieldMap.forEach(async (field) => {

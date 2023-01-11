@@ -24,6 +24,10 @@ useEffect(() => {
 
 async function postEditChanges() {
   if (areObjectsEqual(formsData, formEditData)) {
+    notify({
+      type: 'danger',
+      msg: 'No changes made'
+    })
     return;
   }
   try {
@@ -53,7 +57,7 @@ function accordionItemHandler(index, form) {
 
 };
 
-  return ([].length ? (
+  return (formsData.length ? (
         <>
           <div className='row p-3 modal-height overflow-hidden'>
           <div className='col-6 overflow-scroll' style={{height: 'inherit'}}>
