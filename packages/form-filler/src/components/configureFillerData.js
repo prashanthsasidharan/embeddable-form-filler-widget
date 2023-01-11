@@ -12,7 +12,7 @@ export default function ConfigureFillerData({formsData, refetchFormData}) {
 
   return (
     <>
-      <div role={'button'} onClick={() => setConfigureModalState(true)}>Configure</div>
+      <button className="d-block" onClick={() => setConfigureModalState(true)}>Edit</button>
       {showConfigureModal && ReactDOM.createPortal(
         <ConfigureModal
           closeModalHandling={closeModalHandling}

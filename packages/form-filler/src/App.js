@@ -7,7 +7,8 @@ const fillerStyle = {
   position: 'fixed',
   top: '25%',
   right: '1%',
-  zIndex: 9999
+  zIndex: 9999,
+  width: "fit-content"
 }
 
 function App() {

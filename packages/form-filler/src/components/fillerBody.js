@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect } from "react"
+// import filler from '../../public/filler.svg'
 
 const tiltShake = [
   { transform: 'skewY(-15deg)', offset: 0 },
@@ -20,7 +21,7 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
   }, []);
 
   const attachFillerClickListener = () => {
-    fillerRef.current.addEventListener('mouseup', () => {
+    fillerRef.current.childNodes[1].addEventListener('mouseup', () => {
       isNotDragging() && _fillDummyData();
     });
   }
@@ -110,7 +111,7 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
 
   async function _fillDummyData() {
     let formFieldMap = findFormFieldMap();
-    let buttonElement = fillerRef.current.childNodes[0];
+    let buttonElement = fillerRef.current.childNodes[1];
     if (!formFieldMap) {
       buttonElement.animate(tiltShake, transtionTime);
       addTimedStyle(buttonElement, 'border', '2px solid red');
@@ -169,13 +170,13 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
 
   }
 
-  const fillerLogo = () => {
+  const FillerLogo = () => {
     return (
       <svg
         viewBox="-1 0 455 455.42933"
         width="26px"
         height="26px"
-        style="flex-shrink: 0"
+        style={{flexShrink: 0}}
       >
         <path d="m432.183594 412.761719h-384c-11.777344 0-21.335938 9.558593-21.335938 21.335937 0 11.773438 9.558594 21.332032 
           21.335938 21.332032h384c11.773437 0 21.332031-9.558594 21.332031-21.332032 0-11.777344-9.558594-21.335937-21.332031-21.335937zm0 0" />
@@ -190,9 +191,8 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
     )
   }
   return (
-    <button>
-      sdfsdf
-      {/* {fillerLogo()} */}
+    <button style={{padding: "0.43rem"}}>
+      <FillerLogo />
     </button>
   )
 }
