@@ -1,17 +1,12 @@
 import './App.css';
 import { useEffect } from 'react';
+import intiateProductTour from './utils/productTour';
 
 function App() {
-
-  // useEffect(() => {
-  //   fetch('/person', { method: 'POST', body: {name: 'Ay'}})
-  //     .then(9)
   
-  //   return () => {
-  //     second
-  //   }
-  // }, [third])
-  
+  useEffect(() => {
+    intiateProductTour();
+  }, [])
   return (
     <div className="App">
       <div className="col-4 m-auto mt-5 border-danger-subtle" data-form="payments">
