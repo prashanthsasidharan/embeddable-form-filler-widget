@@ -1,4 +1,4 @@
-GET http://localhost:3000/filler/form
+GET https://embeddable-form-filler.up.railway.app/filler/form
 
 ###
 
@@ -6,15 +6,45 @@ POST http://localhost:3000/filler/form
 Content-Type: application/json
 
 {
-  "name": "hsbcRegForm",
-  "selector": "[data-form=\"hsbc-reg\"]",
-  "fields": [
-    {
-      "selector": "[data-field=\"Identifier1\"] input",
-      "value": "PC000016677",
-      "type": "input"
-    }
-  ]
+    "name": "Form Data",
+    "selector": "[data-form=\"payments\"]",
+    "fields": [
+        {
+            "selector": "[data-field=\"email\"]",
+            "value": "prashanth@gmail.com",
+            "type": "input"
+        },
+        {
+            "selector": "[data-field=\"cardInfo\"]",
+            "value": "12345678999",
+            "type": "input"
+        },
+        {
+            "selector": "[data-field=\"cardDate\"]",
+            "value": "01/23",
+            "type": "input"
+        },
+        {
+            "selector": "[data-field=\"cardCvv\"]",
+            "value": "123",
+            "type": "input"
+        },
+        {
+            "selector": "[data-field=\"cardName\"]",
+            "value": "prash hdfc",
+            "type": "input"
+        },
+        {
+            "selector": "[data-field=\"country\"]",
+            "value": "India",
+            "type": "select"
+        },
+        {
+            "selector": "[data-field=\"zip\"]",
+            "value": "654321",
+            "type": "input"
+        }
+    ]
 }
 
 

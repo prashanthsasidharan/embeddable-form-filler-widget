@@ -29,7 +29,7 @@ export default function intiateProductTour() {
       position: 'left'
     }, {
       title: "Try it out 🍻",
-      intro: "Load this script - .If you want to try this in your application"
+      intro: "Load this script - <b>https://embeddable-form-filler.netlify.app/bundle.min.js</b>.If you want to try this in your application"
     }]
   }).setOption("tooltipClass", "productTourWidth").oncomplete(function() {
     
