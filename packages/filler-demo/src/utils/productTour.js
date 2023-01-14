@@ -15,7 +15,7 @@ export default function intiateProductTour() {
 
   window.introJs().setOptions({
     steps: [{
-      title: "👋 Welcome to Embedable Form Filler",
+      title: "👋 Welcome to Form Filler",
       intro: "<ul><li>When you give your product to testers or other teams in your organization, we also need to provide all the sandboxed credentials and they need to fillin all the details which makes the process repetive and boring.</li><li>This is where our filler fits in. Once configuring filler with the form credentails, with just a button click the form can be prefilled.</li><li>Let's see how it works</li></ul>"
     }, {
       title: "Demo form",

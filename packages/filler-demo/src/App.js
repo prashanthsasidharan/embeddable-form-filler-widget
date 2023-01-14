@@ -8,7 +8,7 @@ import AppleLogo from './svgs/apple';
 function App() {
   
   useEffect(() => {
-    // intiateProductTour();
+    intiateProductTour();
   }, [])
   return (
     <div className="App">
