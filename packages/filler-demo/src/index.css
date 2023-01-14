@@ -68,8 +68,56 @@ form input:focus, form select:focus {
   width: 33%;
 }
 
+.social-media-container {
+  margin: 5px;
+  display: flex;
+  gap: 6px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  left: 5%;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 22px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25%;
+}
+
+.fa-github {
+  background: black;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-dev {
+  background: black;
+  color: white;
+}
+
 @media screen and (max-width: 900px) {
   .form-width {
     width: 80%;
+  }
+
+  .social-media-container {
+    top: 30%;
+    left: 0%;
+  }
+
+  .fa {
+    font-size: 15px;
   }
 }

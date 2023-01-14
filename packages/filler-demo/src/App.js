@@ -8,10 +8,16 @@ import AppleLogo from './svgs/apple';
 function App() {
   
   useEffect(() => {
-    intiateProductTour();
+    // intiateProductTour();
   }, [])
   return (
     <div className="App">
+      <div className='social-media-container'>
+        <a href="https://github.com/prashanthsasidharan/form-filler" className='fa fa-brands fa-github' />
+        <a href="https://www.linkedin.com/in/prashanth-sasidharan-7a32301a8/" className='fa fa-brands fa-linkedin' />
+        <a href="https://twitter.com/PrashanthSasid2" className="fa fa-brands fa-twitter"></a>
+        <a href="https://dev.to/prashan81992916" className="fa fa-brands fa-dev"></a>
+      </div>
       <div className="m-auto mt-4 border-danger-subtle form-width" data-form="payments">
         <form className="form-control p-5 d-flex flex-column gap-4 neumorphic-shadows">
           <button className="btn bg-black pointer-event text-white d-flex justify-content-center align-items-center gap-1">
@@ -52,7 +58,7 @@ function App() {
 
           <fieldset>
             <label htmlFor="card-name">Country or region</label>
-            <select className="p-2 rounded-0 rounded-top" data-field="country" select="India">
+            <select className="p-2 rounded-0 rounded-top" data-field="country">
               <option value="Afghanistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
