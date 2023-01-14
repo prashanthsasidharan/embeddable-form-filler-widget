@@ -63,7 +63,7 @@ router.delete('/:formId',GetForm,  async(req, res) => {
 // //Delete all forms;
 
 // router.delete('/', GetForm, async(req, res) => {
-//   await Form.deleteMany({name: 'hsbcRegForm'})
+//   await Form.deleteMany({name: 'form'})
 //   res.status(200).send({data: 'Form deleted successfully'});
 // });
 

@@ -1,6 +1,9 @@
 import './App.css';
 import { useEffect } from 'react';
 import intiateProductTour from './utils/productTour';
+import MastercardLogo from './svgs/mastercard';
+import VisaLogo from './svgs/visa';
+import AppleLogo from './svgs/apple';
 
 function App() {
   
@@ -9,15 +12,16 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <div className="col-4 m-auto mt-5 border-danger-subtle" data-form="payments">
-        <form className="form-control p-5 d-flex flex-column gap-4 w-8">
-          <button className="btn bg-black text-center pointer-event text-white">
-            Pay
+      <div className="m-auto mt-4 border-danger-subtle form-width" data-form="payments">
+        <form className="form-control p-5 d-flex flex-column gap-4 neumorphic-shadows">
+          <button className="btn bg-black pointer-event text-white d-flex justify-content-center align-items-center gap-1">
+            <AppleLogo />
+            <p className='m-0'>Pay</p>
           </button>
 
           <div className="d-flex position-relative">
             <hr className="w-100" />
-            <p className="position-absolute start-50 text-muted bg-white px-3 translate-middle-x m-0">Or pay with Card</p>
+            <h6 className="position-absolute start-50 top-50 text-muted bg-white px-3 translate-middle m-0 text-nowrap">Or pay with Card</h6>
           </div>
 
           <div>
@@ -28,16 +32,16 @@ function App() {
           <fieldset className="card-info">
             <label htmlFor="card-info">Card information</label>
             <div className="image-embedded-input">
-              <input id="card-info" type="text" className="p-2" data-field="cardInfo"/>
+              <input id="card-info" type="text" className="p-2 rounded-0 rounded-top border-bottom-0" data-field="cardInfo"/>
               <div className="images">
-                <img src="http://www.zermatt-fun.ch/images/mastercard.jpg" width={25} />
-                <img src="http://www.zermatt-fun.ch/images/mastercard.jpg" width={25} />
+                <MastercardLogo />
+                <VisaLogo />
               </div>
             </div>
 
             <div className="card-details d-flex">
-              <input type="text" inputMode="numeric" placeholder="MM / YY" data-field="cardDate"/>
-              <input type="number" maxLength="4" placeholder="CVV " data-field="cardCvv" />
+              <input type="text" inputMode="numeric" placeholder="MM / YY" data-field="cardDate" className='rounded-0 border-right-0' style={{borderRight: '0px'}}/>
+              <input type="number" maxLength="4" placeholder="CVV " data-field="cardCvv" className='rounded-0' />
             </div>
           </fieldset>
 
@@ -48,7 +52,7 @@ function App() {
 
           <fieldset>
             <label htmlFor="card-name">Country or region</label>
-            <select className="p-2" data-field="country" select="India">
+            <select className="p-2 rounded-0 rounded-top" data-field="country" select="India">
               <option value="Afghanistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
@@ -56,7 +60,7 @@ function App() {
               <option value="Andorra">Andorra</option>
               <option value="India">India</option>
             </select>
-            <input type="number" placeholder="ZIP" data-field="zip"/>
+            <input type="number" placeholder="ZIP" data-field="zip" className='border-top-0 rounded-0 rounded-bottom' />
           </fieldset>
 
           <button className="btn btn-primary text-center p-2">Pay</button>

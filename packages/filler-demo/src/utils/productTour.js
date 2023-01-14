@@ -1,13 +1,17 @@
 export default function intiateProductTour() {
+  const fragment = document.createDocumentFragment();
+  
   let editProductTour = document.createElement('div');
   editProductTour.setAttribute('id', 'form-container-productTour');
-  editProductTour.style = 'position: fixed; top: 25%; right: 1.2%; height: 28px;width: 40px;'
-  document.body.appendChild(editProductTour);
+  editProductTour.style = 'position: fixed; top: 25.5%; right: 1.4%; height: 33px;width: 45px;'
+  fragment.appendChild(editProductTour);
 
   let fillerProductTour = document.createElement('div');
   fillerProductTour.setAttribute('id', 'filler-productTour');
-  fillerProductTour.style = 'position: fixed;top: 29%;right: 1.2%;height: 43px;width: 40px;';
-  document.body.appendChild(fillerProductTour);
+  fillerProductTour.style = 'position: fixed;top: 31%;right: 1.6%;height: 43px;width: 43px;';
+  fragment.appendChild(fillerProductTour);
+
+  document.body.appendChild(fragment);
 
   window.introJs().setOptions({
     steps: [{
@@ -19,19 +23,20 @@ export default function intiateProductTour() {
       intro: "This is a demo form which requires sandboxed credentials for successful submission"
     }, {
       element: document.querySelector('#filler-productTour'),
-      title: "Configure ✍️",
-      intro: "I have already configured with form credentials. So Click this filler to fill the form. Note that it is draggable",
+      title: "Filler ✍️",
+      intro: "I have already configured with form credentials. So Click this filler to fill the form. Note that you can place it anywhere on the screen as it is draggable",
       position: 'left'
     }, {
       element: document.querySelector('#form-container-productTour'),
-      title: "Filler ✍️",
+      title: "Configure ✍️",
       intro: "Click this if you want to edit the form credentials or add credentials for new form",
       position: 'left'
     }, {
       title: "Try it out 🍻",
-      intro: "Load this script - <b>https://embeddable-form-filler.netlify.app/bundle.min.js</b>.If you want to try this in your application"
+      intro: "Load this below script if you want to try filler in your application <p><b>https://embeddable-form-filler.netlify.app/bundle.min.js</b></p>"
     }]
   }).setOption("tooltipClass", "productTourWidth").oncomplete(function() {
-    
+    document.getElementById("form-container-productTour").remove();
+    document.getElementById("filler-productTour").remove();
   }).start();
 }

@@ -65,9 +65,9 @@ export default function CreateFormFields({ formsData, closeModal, refetchFormDat
 
   return (
   <>
-    <div className='row p-3 modal-height overflow-hidden'>
-      <div className='col-6 overflow-scroll' style={{height: 'inherit'}}>
-        <div className='row p-2'>
+    <div className='row p-3 modal-height overflow-scroll'>
+      <div className='col-lg-6 overflow-scroll' style={{height: 'inherit'}}>
+        <form className='row p-2'>
           <label className="col-6">Create Mode</label>
           <select className="col-6" onChange={(e) => setCreationType(e.target.value)}>
             {['form', 'field'].map((fieldType) => <option>{fieldType}</option>)}
@@ -81,10 +81,10 @@ export default function CreateFormFields({ formsData, closeModal, refetchFormDat
             }
           </div>
 
-        </div>
+        </form>
       </div>
       
-      <div className='col-6' style={{height: 'inherit'}}>
+      <div className='col-lg-6' style={{height: 'inherit'}}>
         <Preview data={newFormData} />
       </div>
     </div>

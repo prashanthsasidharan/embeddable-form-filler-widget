@@ -3,13 +3,6 @@ import ConfigureFillerData from "./components/configureFillerData";
 import FillerBody from './components/fillerBody'
 import { getForms } from "./utils/networkCalls";
 import Notify from "./contexts/notify";
-const fillerStyle = {
-  position: 'fixed',
-  top: '25%',
-  right: '1%',
-  zIndex: 9999,
-  width: "fit-content"
-}
 
 function App() {
   let [formsData, setFormsData] = useState([{}]);
@@ -29,7 +22,7 @@ function App() {
   return (
     <Notify>
       {!isFillerLoading && (
-        <span ref={fillerRef} id="filler-container" title="Fill dummy data to all the fields" style={fillerStyle}>
+        <span ref={fillerRef} id="filler-container" className="filler-container" title="Fills credentials in form fields">
           <ConfigureFillerData formsData={formsData} refetchFormData={getFormData} />
           <FillerBody fillerRef={fillerRef} formsMap={formsData} />
         </span>

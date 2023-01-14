@@ -5,7 +5,8 @@
 } */
 
 html body {
-  background-color: rgb(225, 225, 225);
+  background-color: #E6E7EE;
+  color: hsla(0,0%,10%,.9)
 }
 
 .image-embedded-input {
@@ -18,7 +19,7 @@ html body {
 
 .image-embedded-input > .images {
   position: absolute;
-  top: 1px;
+  top: 7px;
   right: 5px;
   padding-right: 4px;
 }
@@ -26,6 +27,18 @@ html body {
 .card-info > .card-details > input {
   width: 50%;
   padding: 4px 10px;
+}
+
+form {
+  background-color: #E6E7EE;
+  border: 1px solid #d1d9e6;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.neumorphic-shadows {
+  -webkit-box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
+        box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #fff;
 }
 
 form label {
@@ -40,6 +53,7 @@ form input, form select {
   color: hsla(0,0%,10%,0.9);
   padding: 8px 12px;
   width: 100%;
+  font-size: 14px;
 }
 
 form input:focus, form select:focus {
@@ -48,4 +62,14 @@ form input:focus, form select:focus {
 
 .productTourWidth {
   width: 500px;
+}
+
+.form-width {
+  width: 33%;
+}
+
+@media screen and (max-width: 900px) {
+  .form-width {
+    width: 80%;
+  }
 }

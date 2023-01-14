@@ -1,5 +1,6 @@
 import ConfigureFormFields from '.././configureFormFields';
 import { deepClone } from '../../utils/commonMethods';
+import Button from 'react-bootstrap/esm/Button';
 
 function FormTypeConfig({ newFormData, setNewFormData, constructNewField }) {
 
@@ -23,8 +24,8 @@ function FormTypeConfig({ newFormData, setNewFormData, constructNewField }) {
     <>
       <ConfigureFormFields updateFormData={updateFormData} form={newFormData} />
       <div className='d-flex justify-content-center gap-2'>
-        <button onClick={() => setNewFormData(constructNewField(newFormData))}>Create</button>
-        <button onClick={() => setNewFormData(deleteField(newFormData))}>Delete</button>
+        <Button variant="secondary" onClick={() => setNewFormData(constructNewField(newFormData))}>Create</Button>
+        <Button variant="danger" onClick={() => setNewFormData(deleteField(newFormData))}>Delete</Button>
       </div>
     </>
   )

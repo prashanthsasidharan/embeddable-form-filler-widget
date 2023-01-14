@@ -68,8 +68,8 @@ PUT http://localhost:3000/filler/form/
 Content-Type: application/json
 
 [{
-  "name": "dummy da",
-  "selector": "[data-form=\"hsbc-reg\"]",
+  "name": "form1",
+  "selector": "[data-form=\"form1\"]",
   "fields": [
     {
       "selector": "[data-field=\"Identifier1\"] input",
@@ -78,8 +78,8 @@ Content-Type: application/json
     }
   ]
 }, {
-  "name": "hsbcRegForm",
-  "selector": "[data-form=\"hsbc-reg\"]",
+  "name": "form2",
+  "selector": "[data-form=\"form2\"]",
   "fields": [
     {
       "selector": "[data-field=\"Identifier1\"] input",

@@ -25,13 +25,13 @@ export default function ConfigureModal(props) {
           id="uncontrolled-tab-example"
           className="mb-3"
         >
-          <Tab eventKey="create" title="Create Form/field">
+          <Tab eventKey="create" title="Create">
             <CreateFormFields formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
           </Tab>
-          <Tab eventKey="edit" title="Edit form/field">
+          <Tab eventKey="edit" title="Edit">
             <ConfigureJSONAccordion formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
           </Tab>
-          <Tab eventKey="preview" title="Preview Forms" className='modal-height overflow-hidden'>
+          <Tab eventKey="preview" title="Preview" className='modal-height overflow-hidden'>
             <Preview data={formsData} />
           </Tab>
         </Tabs>
