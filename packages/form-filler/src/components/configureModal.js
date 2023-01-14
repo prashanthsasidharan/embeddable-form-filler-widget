@@ -31,7 +31,7 @@ export default function ConfigureModal(props) {
           <Tab eventKey="edit" title="Edit">
             <ConfigureJSONAccordion formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
           </Tab>
-          <Tab eventKey="preview" title="Preview" className='modal-height overflow-hidden'>
+          <Tab eventKey="preview" title="Preview" className='modal-body-data overflow-hidden'>
             <Preview data={formsData} />
           </Tab>
         </Tabs>

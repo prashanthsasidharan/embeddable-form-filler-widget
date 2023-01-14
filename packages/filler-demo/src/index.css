@@ -107,17 +107,27 @@ form input:focus, form select:focus {
   color: white;
 }
 
+.App form {
+  padding: 3rem!important;
+}
+
 @media screen and (max-width: 900px) {
   .form-width {
     width: 80%;
   }
 
   .social-media-container {
-    top: 30%;
-    left: 0%;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
   }
 
   .fa {
     font-size: 15px;
+  }
+
+  .App form {
+    padding: 1.7rem!important;
   }
 }

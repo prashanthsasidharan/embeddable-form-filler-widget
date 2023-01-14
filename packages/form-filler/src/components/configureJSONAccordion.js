@@ -58,8 +58,8 @@ function accordionItemHandler(index, form) {
 
   return (formsData.length ? (
         <>
-          <div className='row p-3 modal-height overflow-scroll'>
-          <div className='col-lg-6 overflow-scroll' style={{height: 'inherit'}}>
+          <div className='row p-3 modal-body-data overflow-scroll'>
+          <div className='col-lg-6 overflow-scroll'>
             <Accordion defaultActiveKey="0">
     
               {formEditData.map((form, index) => (
@@ -79,7 +79,7 @@ function accordionItemHandler(index, form) {
           </Accordion>  
           </div>
           
-          <div className='col-lg-6' style={{height: 'inherit'}}>
+          <div className='col-lg-6 p-0'>
             <Preview data={previewForm} />
           </div>
         </div>
@@ -89,7 +89,7 @@ function accordionItemHandler(index, form) {
           <Button variant="primary" onClick={() => postEditChanges()}>Save changes</Button>
         </div>
         </>
-      ) : <p className='d-flex justify-content-center align-items-center p-3 modal-height overflow-hidden'>
+      ) : <p className='d-flex justify-content-center align-items-center p-3 modal-body-data overflow-hidden'>
           No forms are available for editing, so create a new form first
       </p>
   )

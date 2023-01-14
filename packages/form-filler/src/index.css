@@ -25,8 +25,14 @@ code {
 }
 
 
-.modal-height {
+.modal-body-data {
   height: 60vh;
+  gap: 10px;
+  flex-wrap: nowrap!important;
+}
+
+.modal-body-data > div {
+  height: inherit;
 }
 
 .accordion-body hr:last-child {
@@ -58,8 +64,11 @@ form input, form select {
 }
 
 @media screen and (max-width: 900px) {
-  .modal-dialog {
-    width: 2%;
-    margin: 30px auto;
+  .modal-body-data {
+    flex-wrap: wrap!important;
   }
+  .modal-body-data > div {
+    height: auto
+  }
+
 }
