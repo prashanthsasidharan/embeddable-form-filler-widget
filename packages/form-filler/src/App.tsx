@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import EditButton from "./components/editButton";
-import Filler from './components/filler'
+import Filler from './components/filler';
 import { getForms } from "./utils/networkCalls";
 import Notify from "./contexts/notify";
 
