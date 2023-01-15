@@ -16,7 +16,7 @@ export default function intiateProductTour() {
   window.introJs().setOptions({
     steps: [{
       title: "👋 Welcome to Form Filler",
-      intro: "<ul><li>When you give your product to testers or other teams in your organization, we also need to provide all the sandboxed credentials and they need to fillin all the details which makes the process repetive and boring.</li><li>This is where our filler fits in. Once configuring filler with the form credentails, with just a button click the form can be prefilled.</li><li>Let's see how it works</li></ul>"
+      intro: "<ul><li>When you give your product to testers or other teams in your organization, we also need to provide all the sandboxed credentials and they need to fillin all the details which makes the process repetive and boring.</li><li>This is where our filler comes to rescue. Once configuring filler with the form credentails, with just a button click the form can be autofilled.</li><li>Let's see how it works</li></ul>"
     }, {
       title: "Demo form",
       element: document.querySelector('[data-form="payments"]'),
@@ -33,7 +33,7 @@ export default function intiateProductTour() {
       position: 'left'
     }, {
       title: "Try it out 🍻",
-      intro: "Load this below script if you want to try filler in your application <p><b>https://embeddable-form-filler.netlify.app/bundle.min.js</b></p>"
+      intro: "Load the below script if you want to try filler in your application <p><b>https://embeddable-form-filler.netlify.app/bundle.min.js</b></p>"
     }]
   }).setOption("tooltipClass", "productTourWidth").oncomplete(function() {
     document.getElementById("form-container-productTour").remove();
