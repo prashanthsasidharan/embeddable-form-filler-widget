@@ -2,8 +2,8 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import ConfigureJSONAccordion from './configureJSONAccordion';
-import CreateFormFields from './createFormFields';
+import EditTab from './edit/EditTab.js';
+import CreateTab from './create/createTab';
 import Preview from './preview';
 
 export default function ConfigureModal(props) {
@@ -26,10 +26,10 @@ export default function ConfigureModal(props) {
           className="mb-3"
         >
           <Tab eventKey="create" title="Create">
-            <CreateFormFields formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
+            <CreateTab formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
           </Tab>
           <Tab eventKey="edit" title="Edit">
-            <ConfigureJSONAccordion formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
+            <EditTab formsData={formsData} closeModal={closeModalHandling} refetchFormData={refetchFormData} />
           </Tab>
           <Tab eventKey="preview" title="Preview" className='modal-body-data overflow-hidden'>
             <Preview data={formsData} />

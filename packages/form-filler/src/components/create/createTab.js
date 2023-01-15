@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 import Button from 'react-bootstrap/esm/Button';
-import Preview from './preview';
-import FormTypeConfig from './editFields/formTypeConfig';
-import FieldTypeConfig from './editFields/fieldTypeConfig';
-import { createForm, createField } from '../utils/networkCalls';
-import { useNotifyContext } from '../contexts/notify';
+import Preview from '../preview';
+import FormTypeConfig from './formTypeConfig';
+import FieldTypeConfig from './fieldTypeConfig';
+import { createForm, createField } from '../../utils/networkCalls';
+import { useNotifyContext } from '../../contexts/notify';
 
 const fieldHashTemplate = {
   selector: '',
@@ -13,7 +13,7 @@ const fieldHashTemplate = {
   type: 'input'
 };
 
-export default function CreateFormFields({ formsData, closeModal, refetchFormData }) {
+export default function CreateTab({ formsData, closeModal, refetchFormData }) {
 
   let [creationType, setCreationType] = useState('form');
 

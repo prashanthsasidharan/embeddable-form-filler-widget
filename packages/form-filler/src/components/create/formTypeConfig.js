@@ -1,4 +1,4 @@
-import ConfigureFormFields from '.././configureFormFields';
+import ConfigureFormFields from '../configureFormFields';
 import { deepClone } from '../../utils/commonMethods';
 import Button from 'react-bootstrap/esm/Button';
 

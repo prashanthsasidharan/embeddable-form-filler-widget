@@ -10,7 +10,7 @@ const tiltShake = [
   { transform: 'skewY(0deg))', offset: 1}
 ];
 
-export default function FillerBody({ formsMap = [], fillerRef = {} }) {
+export default function Filler({ formsMap = [], fillerRef = {} }) {
   let posX, posY;
   let transtionTime = 500;
 
@@ -40,16 +40,6 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
     posX = fillerElement.offsetLeft;
     posY = fillerElement.offsetTop;
   }
-
-  // function constructFillerElement() {
-
-  //   let existingContainer = document.getElementById('filler-container');
-  //   if (existingContainer) {
-  //     existingContainer.remove();
-  //   }
-
-  //   return filler;
-  // }
 
   const addDragFunctionality = () => {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -90,7 +80,6 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
 
   const inputFill = (element, value) => {
     element.value = value;
-    // for all kinds of input, trigger onchange oninput events to sync data with the framework's data layer
     var changeEvent = new Event('change', { bubbles: true });
     var inputEvent = new Event('input', { bubbles: true });
     element.dispatchEvent(inputEvent);
@@ -125,12 +114,10 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
       let element = document.querySelector(field.selector);
 
       if (!element) {
-        // eslint-disable-next-line no-console
         console.log('Cannot find valid element for :', field);
         return;
       }
 
-      // eslint-disable-next-line no-console
       console.log('Filling  ', { el: element, field });
 
       element.focus();
@@ -138,7 +125,6 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
       setTimeout(() => {
         if (field.type === 'select') {
           element.value = field.value;
-          // To sync data with the framework's data layer
           var selectEvent = new Event('select', { bubbles: true });
           element.dispatchEvent(selectEvent);
         } else if (field.type === 'file-upload') {
@@ -158,7 +144,6 @@ export default function FillerBody({ formsMap = [], fillerRef = {} }) {
         } else {
           if (field.type === 'checkbox') {
             element.checked = true;
-            // To sync data with the framework's data layer
             element.dispatchEvent(new Event('change', { bubbles: true }));
           }  else {
             inputFill(element, field.value);

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Accordion from 'react-bootstrap/Accordion';
-import Preview from './preview';
+import Preview from '../preview';
 import Button from 'react-bootstrap/Button';
-import { deepClone, areObjectsEqual } from '../utils/commonMethods';
-import ConfigureFormFields from './configureFormFields';
-import { editForm } from '../utils/networkCalls';
-import { useNotifyContext } from '../contexts/notify';
+import { deepClone, areObjectsEqual } from '../../utils/commonMethods';
+import ConfigureFormFields from '../configureFormFields';
+import { editForm } from '../../utils/networkCalls';
+import { useNotifyContext } from '../../contexts/notify';
 
-export default function ConfigureJSONAccordion({formsData = [], closeModal, refetchFormData}) {
+export default function EditTab({formsData = [], closeModal, refetchFormData}) {
 let [previewForm, setPreviewForm] = useState({});
 
 let [formEditData, setFormsEditData] = useState(() => {
