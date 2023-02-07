@@ -4,9 +4,9 @@ import Filler from './components/filler';
 import { getForms } from "./utils/networkCalls";
 import Notify from "./contexts/notify";
 
-function App() {
+function App({ canEdit=false }) {
   let [formsData, setFormsData] = useState([{}]);
-  let fillerRef = useRef(null);
+  let fillerContainerRef = useRef(null);
   let [isFillerLoading, setFillerLoading] = useState(false);
 
   async function getFormData() {
@@ -22,9 +22,9 @@ function App() {
   return (
     <Notify>
       {!isFillerLoading && (
-        <span ref={fillerRef} id="filler-container" className="filler-container" title="Fills credentials in form fields">
-          <EditButton formsData={formsData} refetchFormData={getFormData} />
-          <Filler fillerRef={fillerRef} formsMap={formsData} />
+        <span ref={fillerContainerRef} id="filler-container" className="filler-container" title="Fills credentials in form fields">
+          {canEdit && <EditButton formsData={formsData} refetchFormData={getFormData} />}
+          <Filler fillerContainerRef={fillerContainerRef} formsMap={formsData} />
         </span>
       )}
     </Notify>

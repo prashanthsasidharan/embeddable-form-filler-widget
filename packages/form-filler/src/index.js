@@ -18,9 +18,9 @@ fragment.appendChild(ModalWrapper);
 document.body.prepend(fragment);
 
 const root = ReactDOM.createRoot(fillerWrapper);
-
+const canEdit = document.currentScript.getAttribute('can-edit') === 'true';
 root.render(
-    <App />
+    <App canEdit={canEdit} />
 );
 
 // If you want to start measuring performance in your app, pass a function

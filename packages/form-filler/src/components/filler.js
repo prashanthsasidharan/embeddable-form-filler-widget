@@ -10,24 +10,17 @@ const tiltShake = [
   { transform: 'skewY(0deg))', offset: 1}
 ];
 
-export default function Filler({ formsMap = [], fillerRef = {} }) {
+export default function Filler({ formsMap = [], fillerContainerRef }) {
   let posX, posY;
   let transtionTime = 500;
 
   useEffect(() => {
     addDragFunctionality();
-    attachFillerClickListener();
     fillerPositionUpdate();
   }, []);
 
-  const attachFillerClickListener = () => {
-    fillerRef.current.childNodes[1].addEventListener('mouseup', () => {
-      isNotDragging() && _fillDummyData();
-    });
-  }
-
   const isNotDragging = () => {
-    let fillerElement = fillerRef.current;
+    let fillerElement = fillerContainerRef.current;
     let newPosX = fillerElement.offsetLeft;
     let newPosY = fillerElement.offsetTop;
     let xDiff = Math.abs(newPosX - posX);
@@ -36,14 +29,14 @@ export default function Filler({ formsMap = [], fillerRef = {} }) {
   }
 
   const fillerPositionUpdate = () => {
-    let fillerElement = fillerRef.current;
+    let fillerElement = fillerContainerRef.current;
     posX = fillerElement.offsetLeft;
     posY = fillerElement.offsetTop;
   }
 
   const addDragFunctionality = () => {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    let fillerElement = fillerRef.current;
+    let fillerElement = fillerContainerRef.current;
     fillerElement.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
@@ -98,16 +91,15 @@ export default function Filler({ formsMap = [], fillerRef = {} }) {
     }, transtionTime);
   }
 
-  async function _fillDummyData() {
+  async function _fillDummyData(filler) {
     let formFieldMap = findFormFieldMap();
-    let buttonElement = fillerRef.current.childNodes[1];
     if (!formFieldMap) {
-      buttonElement.animate(tiltShake, transtionTime);
-      addTimedStyle(buttonElement, 'border', '2px solid red');
+      filler.animate(tiltShake, transtionTime);
+      addTimedStyle(filler, 'border', '2px solid red');
       return;
     }
 
-    addTimedStyle(buttonElement, 'border', '2px solid #1BAD71');
+    addTimedStyle(filler, 'border', '2px solid #1BAD71');
 
     // filler
     formFieldMap.forEach(async (field) => {
@@ -157,7 +149,12 @@ export default function Filler({ formsMap = [], fillerRef = {} }) {
 
   
   return (
-    <button className='filler-logo'>
+    <button
+      className='filler-logo'
+      onMouseUp={(e) => {
+        isNotDragging() && _fillDummyData(e.currentTarget);
+      }}
+    >
       <FillerLogo />
     </button>
   )
