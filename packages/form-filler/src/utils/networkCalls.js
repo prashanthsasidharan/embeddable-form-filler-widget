@@ -1,16 +1,14 @@
-// const BASE_URL = 'https://embeddable-form-filler.up.railway.app/filler/form';
-const BASE_URL = 'http://localhost:3000/filler/form';
-
+const BASE_PATH= '/filler/form';
 
 async function getForms() {
-  let res = await fetch(`${BASE_URL}/`)
+  let res = await fetch(`${BASE_PATH}/`)
   let { data } = await res.json();
   return data;
 }
 
 async function editForm(formEditData) {
   try {
-    let res = await fetch(`${BASE_URL}/`, {
+    let res = await fetch(`${BASE_PATH}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -25,7 +23,7 @@ async function editForm(formEditData) {
 }
 
 async function createForm(newForm) {
-  let res = await fetch(`${BASE_URL}/`, {
+  let res = await fetch(`${BASE_PATH}/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -39,7 +37,7 @@ async function createForm(newForm) {
 
 async function createField(newForm) {
   let { formId, ...fieldData } = newForm;
-  let res = await fetch(`${BASE_URL}/fields/${formId}`, {
+  let res = await fetch(`${BASE_PATH}/fields/${formId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

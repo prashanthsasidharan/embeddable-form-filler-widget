@@ -14,6 +14,10 @@ db.once('open', () => console.log('db started'))
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/assets/index.html');
+})
+
 app.use('/filler/form', fillerRouter);
 
 
