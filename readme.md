@@ -74,15 +74,9 @@ Add .env file in root folder of filler-backend
 
 `PORT=3000`
 
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
 ## How to use in your application
 
-- Create api’s listed [here]() with the specified endpoints
+- Create api’s listed [here](https://github.com/prashanthsasidharan/form-filler/tree/main/packages/filler-backend) with the specified endpoints
 - In the form add a form data selector for identifying the form(ex - data-form=“payments”), and add fields selectors  (ex: data-field=“email”) for identifying and autofilling the fields
 - Embed **<script src=“https://embeddable-form-filler.netlify.app/bundle.min.js” can-edit=“true”>** in your app
 - Configure credentials that needs to be autofilled by clicking the edit option on the filler
@@ -102,4 +96,9 @@ Contributions are always welcome!
 ## Badges
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
 
