@@ -1,7 +1,7 @@
 
 # Form Filler
 
-When you give your product to testers or other teams in your organisation, we also need to provide all the sandboxed credentials and they need to fill in all the details which makes the process repetitive and boring. This is where our filler comes to rescue. Once configuring filler with the form credentials, with just a button click the form can be autofilled.
+When you give your product to testers or other teams in your organisation, we also need to provide all the sandboxed credentials and they need to fill in all the details which makes the process repetitive and boring. This is where our filler widget comes to rescue. Once configuring filler widget with the form credentials, with just a button click the form can be autofilled.
 
 
 
